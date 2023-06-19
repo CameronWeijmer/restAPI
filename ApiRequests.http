@@ -1,0 +1,37 @@
+###
+#flying time
+#param int v0 and int theta
+#return result in json format
+#Calculation ok
+GET http://localhost:8080/api/flyingTime?v0=10&theta=45
+Accept: application/json
+
+###
+#flying time
+#param int v0 and int theta
+#return result in json format
+#Calculation ok
+GET http://localhost:8080/api/flyingHeight?v0=10&theta=45
+Accept: application/json
+
+
+###
+#flying height
+#Calculation WRONG
+GET http://localhost:8080/api/flyingHeight?v0=567&theta=45
+Accept: application/json
+
+###
+#flying width
+#param int v0 and int theta
+#return result in json format
+#Calculation ok
+GET http://localhost:8080/api/flyingWidth?v0=10&theta=45
+Accept: application/json
+
+###
+#safe Addition
+#Calculation testing
+GET http://localhost:8080/api/flyingWidth?v0=10&theta=45
+Accept: application/json
+
