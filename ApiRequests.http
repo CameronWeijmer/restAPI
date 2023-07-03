@@ -14,7 +14,6 @@ Accept: application/json
 GET http://localhost:8080/api/flyingHeight?v0=10&theta=45
 Accept: application/json
 
-
 ###
 #flying height
 #Calculation WRONG
@@ -32,6 +31,6 @@ Accept: application/json
 ###
 #safe Addition
 #Calculation testing
-GET http://localhost:8080/api/flyingWidth?v0=10&theta=45
+GET http://localhost:8080/api/safeAddition?a=2147483647&b=1
 Accept: application/json
 

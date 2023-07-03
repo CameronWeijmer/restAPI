@@ -82,4 +82,34 @@ public class FunctionsController {
         return ResponseEntity.ok().body(response.toString());
     }
 
+    @GetMapping(path = "unsafeDivision")
+    public ResponseEntity<String> unsafeDivision(@RequestParam int a, @RequestParam int b) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("function", "unsafeDivision");
+        response.put("a", a);
+        response.put("b", b);
+        response.put("result", functions.unsafeDivision(a, b));
+        return ResponseEntity.ok().body(response.toString());
+    }
+
+    @GetMapping(path = "safeDivision")
+    public ResponseEntity<String> safeDivision(@RequestParam int a, @RequestParam int b) {
+        Map<String, Object> response = new HashMap<>();
+        double result = 0;
+        try {
+            response.put("function", "safeDivision");
+            response.put("a", a);
+            response.put("b", b);
+            response.put("result", functions.safeDivision(a, b));
+        } catch (ArithmeticException e) {
+            e.getMessage();
+            response.put("function", "safeDivision");
+            response.put("a", a);
+            response.put("b", b);
+            response.put("result", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response.toString());
+        }
+        return ResponseEntity.ok().body(response.toString());
+    }
+
 }
