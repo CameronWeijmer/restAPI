@@ -69,6 +69,42 @@ class FunctionsTest {
     }
 
     @Test
+    void testSafeAdditionNegativeNumberAndZero() {
+        assertEquals(-5, functions.safeAddition(-5, 0));
+    }
+
+    @Test
+    void testSafeAdditionTwoMaxValues() {
+        assertThrows(ArithmeticException.class, () -> functions.safeAddition(Integer.MAX_VALUE, Integer.MAX_VALUE));
+    }
+
+    @Test
+    void testSafeAdditionTwoMinValues() {
+        assertThrows(ArithmeticException.class, () -> functions.safeAddition(Integer.MIN_VALUE, Integer.MIN_VALUE));
+    }
+
+    @Test
+    void testSafeAdditionMaxValueAndPositiveNumber() {
+        assertThrows(ArithmeticException.class, () -> functions.safeAddition(Integer.MAX_VALUE, 5));
+    }
+
+    @Test
+    void testSafeAdditionMaxValueAndNegativeNumber() {
+        assertEquals(2147483646, functions.safeAddition(Integer.MAX_VALUE, -1));
+    }
+
+    @Test
+    void testSafeAdditionMinValueAndPositiveNumber() {
+        assertEquals(-2147483647, functions.safeAddition(Integer.MIN_VALUE, 1));
+    }
+
+    @Test
+    void testSafeAdditionMinValueAndNegativeNumber(){
+        //assertThrows(ArithmeticException.class, () -> functions.safeAddition(Integer.MIN_VALUE, -1));
+        assertEquals(3, functions.safeAddition(Integer.MIN_VALUE, -1));
+    }
+
+    @Test
     void unsafeDivision() {
         //TODO Should be implemented
     }
